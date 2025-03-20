@@ -8,7 +8,7 @@ mod Bookstore{
     #[storage]
     struct Storage {
         books: LegacyMap<felt252, Book>,
-        owser: ContractAddress,
+        owner: ContractAddress,
     }
 
     #[derive(Drop, Serde)]
