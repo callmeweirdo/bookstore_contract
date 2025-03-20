@@ -60,7 +60,7 @@ mod Bookstore{
         ref self: ContractState,
         id: felt252
     ){
-        assert(self.owner.read() == get_caller_address(), "Only owners can remove books"){
+        assert(self.owner.read() == get_caller_address(), "Only owners can remove books "){
             self.books.write(id, Option::None);
         }
     }
