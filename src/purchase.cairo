@@ -40,8 +40,19 @@ mod Purchase {
         );
 
         // Emit an event for the puchase
-        self.emit(BookPurchased {buyrer: caller, book_id: id, quantity});
+        self.emit(BookPurchased {buyer:caller, book_id: id, quantity});
 
-        
+        #[event]
+        #[derive(Drop, Starknet::Event)]
+        enum Event{
+            BookPurchased: BookPurchased,
+        }
+
+        #[derive(Drop, Serde)]
+        struct BookPurchased{
+            buyrer: ContractAddress,
+            book_id: felt252,
+            quantity: u8,
+        }
     }
 }
